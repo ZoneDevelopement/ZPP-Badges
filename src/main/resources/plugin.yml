@@ -1,0 +1,19 @@
+name: ZPPBadges
+version: '${version}'
+main: dev.nandi0813.zppbadges.ZPPBadges
+authors: [ Nandi0813 ]
+description: Badges addon for ZonePractice Pro
+depend: [ ZonePracticePro ]
+softdepend: [ PlaceholderAPI ]
+api-version: '1.21'
+commands:
+  badges:
+    description: Open the badges menu or manage badges
+    aliases: [ badge ]
+permissions:
+  zppbadges.use:
+    description: Open the badges menu
+    default: true
+  zppbadges.admin:
+    description: Give, take, reset badges and reload the config
+    default: op

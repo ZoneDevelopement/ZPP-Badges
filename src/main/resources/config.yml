@@ -1,0 +1,52 @@
+# Maximum number of badges a player can activate at once.
+MAX-ACTIVE: 3
+# Players with the zppbadges.max.<number> permission can activate more (the highest number wins).
+# Numbers up to this limit are checked.
+MAX-PERMISSION-LIMIT: 20
+
+# How often (in seconds) online players are checked for new badges. Badges are also checked after
+# matches, elo changes, kills and events.
+CHECK-INTERVAL-SECONDS: 60
+
+# Sound played when a badge is unlocked. Leave empty to disable.
+UNLOCK-SOUND: "entity.player.levelup"
+
+# Text placed between two active badges.
+BADGE-SEPARATOR: ""
+
+# Where badges are shown next to the player's name.
+# POSITION: BEFORE_NAME or AFTER_NAME
+# SEPARATOR: text between the badges and the name.
+LOCATIONS:
+  NAMETAG:
+    ENABLED: true
+    POSITION: AFTER_NAME
+    SEPARATOR: " "
+  TAB:
+    ENABLED: true
+    POSITION: AFTER_NAME
+    SEPARATOR: " "
+  CHAT:
+    ENABLED: true
+    POSITION: BEFORE_NAME
+    SEPARATOR: " "
+  SIDEBAR:
+    ENABLED: false
+    POSITION: AFTER_NAME
+    SEPARATOR: " "
+
+GUI:
+  TITLE: "<dark_gray>Badges <gray>(<page>/<pages>)"
+  # Button in the ZonePractice Pro cosmetics menu.
+  HUB-ICON:
+    MATERIAL: NAME_TAG
+    NAME: "<gold><b>Badges"
+    LORE:
+      - "<gray>Show off badges next to your name."
+      - ""
+      - "<gray>Unlocked: <white><unlocked>/<total>"
+      - "<gray>Active: <white><active>/<max>"
+      - ""
+      - "<yellow>Click to open"
+  LOCKED-MATERIAL: GRAY_DYE
+  FILLER-MATERIAL: BLACK_STAINED_GLASS_PANE

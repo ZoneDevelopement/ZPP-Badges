@@ -1,0 +1,392 @@
+# Each badge:
+#   DISPLAY:      MiniMessage shown next to the name (keep it short, 1-2 characters).
+#   NAME:         Name in the menu and messages.
+#   DESCRIPTION:  Menu lore lines.
+#   ICON:         Menu item material.
+#   REQUIREMENTS: All must be met to unlock the badge. Leave empty for staff-only badges (/badges give).
+#     TYPE: WINS, RANKED_WINS, KILLS, ELO, EXPERIENCE, BEST_WIN_STREAK, BEST_KILL_STREAK, MATCHES_PLAYED,
+#           DAYS_SINCE_JOIN, EVENT_WINS, FFA_KILLS, DIVISION, LEADERBOARD_TOP
+#     AMOUNT: target number (for LEADERBOARD_TOP: the top N positions)
+#     LADDER: optional ladder name (WINS, RANKED_WINS, KILLS, BEST_WIN_STREAK, BEST_KILL_STREAK, LEADERBOARD_TOP); required for ELO
+#     DIVISION: division name for DIVISION, e.g. "Gold I"
+#     STAT: leaderboard for LEADERBOARD_TOP: ELO, WINS, KILLS, DEATHS, WIN_STREAK, BEST_WIN_STREAK, LOSE_STREAK, BEST_LOSE_STREAK
+#   Once unlocked, a badge is kept even if the requirement is no longer met.
+BADGES:
+  first_win:
+    DISPLAY: "<green>✦"
+    NAME: "<green>First Victory"
+    DESCRIPTION:
+      - "<gray>Win your first match."
+    ICON: WOODEN_SWORD
+    REQUIREMENTS:
+      - TYPE: WINS
+        AMOUNT: 1
+  veteran_fighter:
+    DISPLAY: "<gradient:#a8a8a8:#ffffff>⚔</gradient>"
+    NAME: "<gradient:#a8a8a8:#ffffff>Veteran Fighter</gradient>"
+    DESCRIPTION:
+      - "<gray>Win 50 matches."
+    ICON: IRON_SWORD
+    REQUIREMENTS:
+      - TYPE: WINS
+        AMOUNT: 50
+  battle_hardened:
+    DISPLAY: "<aqua>✹"
+    NAME: "<aqua>Battle Hardened"
+    DESCRIPTION:
+      - "<gray>Win 250 matches."
+    ICON: DIAMOND_SWORD
+    REQUIREMENTS:
+      - TYPE: WINS
+        AMOUNT: 250
+  legend_of_the_arena:
+    DISPLAY: "<gradient:#ffd000:#ff8a00>★</gradient>"
+    NAME: "<gradient:#ffd000:#ff8a00>Legend of the Arena</gradient>"
+    DESCRIPTION:
+      - "<gray>Win 1000 matches."
+    ICON: NETHERITE_SWORD
+    REQUIREMENTS:
+      - TYPE: WINS
+        AMOUNT: 1000
+  mythic_champion:
+    DISPLAY: "<gradient:#ff00cc:#3333ff>♛</gradient>"
+    NAME: "<gradient:#ff00cc:#3333ff>Mythic Champion</gradient>"
+    DESCRIPTION:
+      - "<gray>Win 5000 matches."
+    ICON: TOTEM_OF_UNDYING
+    REQUIREMENTS:
+      - TYPE: WINS
+        AMOUNT: 5000
+  ranked_contender:
+    DISPLAY: "<yellow>⚑"
+    NAME: "<yellow>Ranked Contender"
+    DESCRIPTION:
+      - "<gray>Win 25 ranked matches."
+    ICON: GOLD_INGOT
+    REQUIREMENTS:
+      - TYPE: RANKED_WINS
+        AMOUNT: 25
+  ranked_warrior:
+    DISPLAY: "<gold>⚑⚑"
+    NAME: "<gold>Ranked Warrior"
+    DESCRIPTION:
+      - "<gray>Win 250 ranked matches."
+    ICON: GOLDEN_HELMET
+    REQUIREMENTS:
+      - TYPE: RANKED_WINS
+        AMOUNT: 250
+  ranked_grandmaster:
+    DISPLAY: "<gradient:#f7971e:#ffd200>♚</gradient>"
+    NAME: "<gradient:#f7971e:#ffd200>Ranked Grandmaster</gradient>"
+    DESCRIPTION:
+      - "<gray>Win 1000 ranked matches."
+    ICON: ENCHANTED_GOLDEN_APPLE
+    REQUIREMENTS:
+      - TYPE: RANKED_WINS
+        AMOUNT: 1000
+  first_blood:
+    DISPLAY: "<red>☠"
+    NAME: "<red>Bloodletter"
+    DESCRIPTION:
+      - "<gray>Get 100 kills."
+    ICON: REDSTONE
+    REQUIREMENTS:
+      - TYPE: KILLS
+        AMOUNT: 100
+  reaper:
+    DISPLAY: "<dark_red>☠☠"
+    NAME: "<dark_red>Reaper"
+    DESCRIPTION:
+      - "<gray>Get 1000 kills."
+    ICON: WITHER_SKELETON_SKULL
+    REQUIREMENTS:
+      - TYPE: KILLS
+        AMOUNT: 1000
+  death_incarnate:
+    DISPLAY: "<gradient:#780206:#ff0000>✞</gradient>"
+    NAME: "<gradient:#780206:#ff0000>Death Incarnate</gradient>"
+    DESCRIPTION:
+      - "<gray>Get 10000 kills."
+    ICON: NETHER_STAR
+    REQUIREMENTS:
+      - TYPE: KILLS
+        AMOUNT: 10000
+  ffa_hunter:
+    DISPLAY: "<green>❖"
+    NAME: "<green>FFA Hunter"
+    DESCRIPTION:
+      - "<gray>Get 100 FFA kills."
+    ICON: BOW
+    REQUIREMENTS:
+      - TYPE: FFA_KILLS
+        AMOUNT: 100
+  ffa_predator:
+    DISPLAY: "<dark_green>❖❖"
+    NAME: "<dark_green>FFA Predator"
+    DESCRIPTION:
+      - "<gray>Get 1000 FFA kills."
+    ICON: CROSSBOW
+    REQUIREMENTS:
+      - TYPE: FFA_KILLS
+        AMOUNT: 1000
+  on_fire:
+    DISPLAY: "<gold>♨"
+    NAME: "<gold>On Fire"
+    DESCRIPTION:
+      - "<gray>Reach a 5 win streak."
+    ICON: BLAZE_POWDER
+    REQUIREMENTS:
+      - TYPE: BEST_WIN_STREAK
+        AMOUNT: 5
+  unstoppable:
+    DISPLAY: "<gradient:#ff416c:#ff4b2b>♨♨</gradient>"
+    NAME: "<gradient:#ff416c:#ff4b2b>Unstoppable</gradient>"
+    DESCRIPTION:
+      - "<gray>Reach a 15 win streak."
+    ICON: FIRE_CHARGE
+    REQUIREMENTS:
+      - TYPE: BEST_WIN_STREAK
+        AMOUNT: 15
+  invincible:
+    DISPLAY: "<light_purple>✺"
+    NAME: "<light_purple>Invincible"
+    DESCRIPTION:
+      - "<gray>Reach a 30 win streak."
+    ICON: BEACON
+    REQUIREMENTS:
+      - TYPE: BEST_WIN_STREAK
+        AMOUNT: 30
+  killing_spree:
+    DISPLAY: "<white>⚡"
+    NAME: "<white>Killing Spree"
+    DESCRIPTION:
+      - "<gray>Reach a 5 FFA kill streak."
+    ICON: FEATHER
+    REQUIREMENTS:
+      - TYPE: BEST_KILL_STREAK
+        AMOUNT: 5
+  rampage:
+    DISPLAY: "<yellow>⚡⚡"
+    NAME: "<yellow>Rampage"
+    DESCRIPTION:
+      - "<gray>Reach a 15 FFA kill streak."
+    ICON: LIGHTNING_ROD
+    REQUIREMENTS:
+      - TYPE: BEST_KILL_STREAK
+        AMOUNT: 15
+  massacre:
+    DISPLAY: "<gradient:#f12711:#f5af19>⚡⚡⚡</gradient>"
+    NAME: "<gradient:#f12711:#f5af19>Massacre</gradient>"
+    DESCRIPTION:
+      - "<gray>Reach a 30 FFA kill streak."
+    ICON: END_CRYSTAL
+    REQUIREMENTS:
+      - TYPE: BEST_KILL_STREAK
+        AMOUNT: 30
+  regular:
+    DISPLAY: "<blue>✚"
+    NAME: "<blue>Regular"
+    DESCRIPTION:
+      - "<gray>Play 100 matches."
+    ICON: CLOCK
+    REQUIREMENTS:
+      - TYPE: MATCHES_PLAYED
+        AMOUNT: 100
+  dedicated:
+    DISPLAY: "<dark_aqua>✚✚"
+    NAME: "<dark_aqua>Dedicated"
+    DESCRIPTION:
+      - "<gray>Play 1000 matches."
+    ICON: COMPASS
+    REQUIREMENTS:
+      - TYPE: MATCHES_PLAYED
+        AMOUNT: 1000
+  obsessed:
+    DISPLAY: "<gradient:#00c6ff:#0072ff>✚</gradient>"
+    NAME: "<gradient:#00c6ff:#0072ff>Obsessed</gradient>"
+    DESCRIPTION:
+      - "<gray>Play 5000 matches."
+    ICON: CLOCK
+    REQUIREMENTS:
+      - TYPE: MATCHES_PLAYED
+        AMOUNT: 5000
+  newcomer:
+    DISPLAY: "<green>❄"
+    NAME: "<green>Newcomer"
+    DESCRIPTION:
+      - "<gray>Play on the server for 7 days."
+    ICON: SNOWBALL
+    REQUIREMENTS:
+      - TYPE: DAYS_SINCE_JOIN
+        AMOUNT: 7
+  loyal_member:
+    DISPLAY: "<aqua>❄❄"
+    NAME: "<aqua>Loyal Member"
+    DESCRIPTION:
+      - "<gray>Play on the server for 30 days."
+    ICON: PACKED_ICE
+    REQUIREMENTS:
+      - TYPE: DAYS_SINCE_JOIN
+        AMOUNT: 30
+  one_year_strong:
+    DISPLAY: "<gradient:#4facfe:#00f2fe>❄</gradient>"
+    NAME: "<gradient:#4facfe:#00f2fe>One Year Strong</gradient>"
+    DESCRIPTION:
+      - "<gray>Play on the server for 365 days."
+    ICON: BLUE_ICE
+    REQUIREMENTS:
+      - TYPE: DAYS_SINCE_JOIN
+        AMOUNT: 365
+  event_guest:
+    DISPLAY: "<yellow>★"
+    NAME: "<yellow>Event Guest"
+    DESCRIPTION:
+      - "<gray>Win an event."
+    ICON: GOLD_NUGGET
+    REQUIREMENTS:
+      - TYPE: EVENT_WINS
+        AMOUNT: 1
+  event_regular:
+    DISPLAY: "<gold>★★"
+    NAME: "<gold>Event Regular"
+    DESCRIPTION:
+      - "<gray>Win 10 events."
+    ICON: GOLD_BLOCK
+    REQUIREMENTS:
+      - TYPE: EVENT_WINS
+        AMOUNT: 10
+  event_legend:
+    DISPLAY: "<gradient:#f7971e:#ffd200>★★★</gradient>"
+    NAME: "<gradient:#f7971e:#ffd200>Event Legend</gradient>"
+    DESCRIPTION:
+      - "<gray>Win 50 events."
+    ICON: NETHER_STAR
+    REQUIREMENTS:
+      - TYPE: EVENT_WINS
+        AMOUNT: 50
+  experienced:
+    DISPLAY: "<green>✧"
+    NAME: "<green>Experienced"
+    DESCRIPTION:
+      - "<gray>Reach 1000 experience."
+    ICON: EXPERIENCE_BOTTLE
+    REQUIREMENTS:
+      - TYPE: EXPERIENCE
+        AMOUNT: 1000
+  wise_one:
+    DISPLAY: "<dark_green>✧✧"
+    NAME: "<dark_green>Wise One"
+    DESCRIPTION:
+      - "<gray>Reach 10000 experience."
+    ICON: ENCHANTED_BOOK
+    REQUIREMENTS:
+      - TYPE: EXPERIENCE
+        AMOUNT: 10000
+  gold_division:
+    DISPLAY: "<yellow>◈"
+    NAME: "<yellow>Golden Age"
+    DESCRIPTION:
+      - "<gray>Reach the Gold I division."
+    ICON: GOLD_INGOT
+    REQUIREMENTS:
+      - TYPE: DIVISION
+        DIVISION: "Gold I"
+  diamond_division:
+    DISPLAY: "<aqua>◈◈"
+    NAME: "<aqua>Brilliant"
+    DESCRIPTION:
+      - "<gray>Reach the Diamond I division."
+    ICON: DIAMOND
+    REQUIREMENTS:
+      - TYPE: DIVISION
+        DIVISION: "Diamond I"
+  master_division:
+    DISPLAY: "<gradient:#8e2de2:#4a00e0>◈</gradient>"
+    NAME: "<gradient:#8e2de2:#4a00e0>Master</gradient>"
+    DESCRIPTION:
+      - "<gray>Reach the Master division."
+    ICON: AMETHYST_SHARD
+    REQUIREMENTS:
+      - TYPE: DIVISION
+        DIVISION: "Master"
+  top_ten_wins:
+    DISPLAY: "<gradient:#11998e:#38ef7d>♞</gradient>"
+    NAME: "<gradient:#11998e:#38ef7d>Top Ten</gradient>"
+    DESCRIPTION:
+      - "<gray>Be in the top 10 on the global WINS leaderboard."
+    ICON: EMERALD
+    REQUIREMENTS:
+      - TYPE: LEADERBOARD_TOP
+        AMOUNT: 10
+        STAT: WINS
+  elo_podium:
+    DISPLAY: "<gradient:#f5af19:#f12711>♕</gradient>"
+    NAME: "<gradient:#f5af19:#f12711>Podium</gradient>"
+    DESCRIPTION:
+      - "<gray>Be in the top 3 on the global ELO leaderboard."
+    ICON: GOLDEN_APPLE
+    REQUIREMENTS:
+      - TYPE: LEADERBOARD_TOP
+        AMOUNT: 3
+        STAT: ELO
+  kings_bane:
+    DISPLAY: "<gradient:#ff512f:#dd2476>♔</gradient>"
+    NAME: "<gradient:#ff512f:#dd2476>King's Bane</gradient>"
+    DESCRIPTION:
+      - "<gray>Be the number one on the global KILLS leaderboard."
+    ICON: WITHER_ROSE
+    REQUIREMENTS:
+      - TYPE: LEADERBOARD_TOP
+        AMOUNT: 1
+        STAT: KILLS
+  gladiator:
+    DISPLAY: "<gradient:#ffd700:#ff4500>⚔</gradient>"
+    NAME: "<gradient:#ffd700:#ff4500>Gladiator</gradient>"
+    DESCRIPTION:
+      - "<gray>Win 1000 matches."
+      - "<gray>Reach a 30 win streak."
+      - "<gray>Reach the Diamond I division."
+    ICON: NETHERITE_CHESTPLATE
+    REQUIREMENTS:
+      - TYPE: WINS
+        AMOUNT: 1000
+      - TYPE: BEST_WIN_STREAK
+        AMOUNT: 30
+      - TYPE: DIVISION
+        DIVISION: "Diamond I"
+  void_walker:
+    DISPLAY: "<gradient:#434343:#000000>✦</gradient>"
+    NAME: "<gradient:#434343:#9d9d9d>Void Walker</gradient>"
+    DESCRIPTION:
+      - "<gray>Play 5000 matches."
+      - "<gray>Play on the server for 365 days."
+      - "<gray>Get 10000 kills."
+    ICON: ENDER_PEARL
+    REQUIREMENTS:
+      - TYPE: MATCHES_PLAYED
+        AMOUNT: 5000
+      - TYPE: DAYS_SINCE_JOIN
+        AMOUNT: 365
+      - TYPE: KILLS
+        AMOUNT: 10000
+
+# Ladder-specific badge (WINS, RANKED_WINS, KILLS, BEST_WIN_STREAK, BEST_KILL_STREAK, LEADERBOARD_TOP and ELO accept LADDER):
+#  sumo_champion:
+#    DISPLAY: "<aqua>◆"
+#    NAME: "<aqua>Sumo Champion"
+#    DESCRIPTION:
+#      - "<gray>Win 25 matches on Sumo."
+#    ICON: IRON_SWORD
+#    REQUIREMENTS:
+#      - TYPE: WINS
+#        AMOUNT: 25
+#        LADDER: Sumo
+
+# Staff-only badge: no requirements, given with /badges give:
+#  staff_badge:
+#    DISPLAY: "<light_purple>❣"
+#    NAME: "<light_purple>Staff Badge"
+#    DESCRIPTION:
+#      - "<gray>Awarded by the staff."
+#    ICON: NAME_TAG
+#    REQUIREMENTS: []
