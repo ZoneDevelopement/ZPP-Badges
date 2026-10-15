@@ -16,6 +16,8 @@ show them next to their name in the nametag, tab list and chat. Badges are picke
 2. Start the server. The default `config.yml`, `badges.yml` and `messages.yml` are created in `plugins/ZPPBadges/`.
 3. Edit the files to your liking, then run `/badges reload` (or restart the server).
 
+The Badges button appears in the ZonePractice Pro cosmetics menu. To move it, set `zppbadges: <slot>` under `GUIS.COSMETICS.HUB.ADDON-SLOTS` in ZonePractice Pro's `guis.yml`.
+
 ## Configuration
 
 ### config.yml
