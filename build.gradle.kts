@@ -12,7 +12,7 @@ java {
 dependencies {
     compileOnly("io.papermc.paper:paper-api:26.1.2.build.74-stable")
     compileOnly("me.clip:placeholderapi:2.12.3")
-    compileOnly("com.github.ZoneDevelopement:ZonePracticePro-Api:2.5.0")
+    compileOnly("com.github.ZoneDevelopement:ZonePracticePro-Api:2.5.1")
 }
 
 tasks.withType<JavaCompile>().configureEach {
