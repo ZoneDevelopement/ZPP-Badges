@@ -1,0 +1,78 @@
+ZPP-Badges — Source-Available License (Own Use and Contribution Only)
+Copyright (c) 2026 Nandor Dukat. All rights reserved.
+
+This software and its source code (the "Software") are the exclusive property
+of Nandor Dukat (the "Author"). The Software is licensed, not sold. The
+Software is source-available, not open source.
+
+1. Permitted Use
+   Subject to the terms below, and only for a person or entity that has
+   lawfully obtained the Software from the Author or an Author-authorized
+   channel (a "Licensee"), the Author grants a personal, non-exclusive,
+   non-transferable, revocable license to:
+   (a) install and run the Software on the Licensee's own game servers and
+       development machines for its intended purpose;
+   (b) read and study the source code;
+   (c) modify the Software, and build the modified Software, for the
+       Licensee's own private use only; and
+   (d) contribute changes to the Author's official repository, as set out in
+       Section 3.
+
+2. Restrictions
+   Except with the Author's prior express written permission, you may not:
+   (a) distribute, redistribute, publish, sublicense, sell, rent, lease, lend,
+       or otherwise make the Software, a modified version of it, or any part
+       of it available to any third party, whether or not for a fee, in source
+       or compiled form;
+   (b) publish or host a fork, mirror, or copy of the Software, or of a
+       modified version of it, in any public or shared location. A private
+       copy, or a fork on a code hosting platform that exists only to prepare
+       a contribution under Section 3, is allowed;
+   (c) use the Software, or any part of it, in another project, product, or
+       service, or build a competing or derivative product from it;
+   (d) decompile, disassemble, reverse engineer, or otherwise attempt to derive
+       the source code of any obfuscated or compiled build, except to the
+       extent this restriction is prohibited by applicable law;
+   (e) remove, alter, or obscure any copyright, trademark, or other proprietary
+       notice in the Software;
+   (f) present the Software or a modified version of it as your own work, or
+       as endorsed by the Author.
+
+3. Contributions
+   You may submit changes to the Author's official repository, for example as
+   a pull request or patch. By submitting a contribution you confirm that you
+   wrote it or have the right to submit it, and you grant the Author a
+   perpetual, worldwide, irrevocable, royalty-free, sublicensable license to
+   use, copy, modify, and distribute the contribution as part of the Software,
+   under any license the Author chooses. You keep no right to distribute the
+   contribution as part of the Software. The Author may accept, change, or
+   reject any contribution, and has no obligation to credit you.
+
+4. Written Permission
+   Any right not expressly granted in this license, including any
+   redistribution, public fork, or public release, requires the Author's prior
+   written permission. Requests may be directed to the Author through the
+   project's official channels. Permission, if given, applies only to the
+   specific act and scope stated in writing and may be revoked.
+
+5. Ownership
+   The Author retains all right, title, and interest in and to the Software,
+   including all intellectual property rights, and in all modifications and
+   contributions as set out in Section 3. No ownership is transferred by this
+   license.
+
+6. Termination
+   This license terminates automatically if you breach any of its terms. On
+   termination you must stop using the Software and destroy all copies in your
+   possession or control.
+
+7. No Warranty
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+
+8. Limitation of Liability
+   IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING
+   FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+   DEALINGS IN THE SOFTWARE.

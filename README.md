@@ -143,3 +143,8 @@ the matching requirements.
 
 The build uses the ZonePractice Pro API from a local `api/` checkout when one exists next to the repository
 (`../../api`). Use `-PlocalApi=false` to build against the published `ZonePracticePro-Api` artifact from JitPack instead.
+
+## License
+
+Source-available. Copyright © **2026 Nandor Dukat**. All rights reserved.  
+You may use it on your own servers, modify it for your own private use, and contribute changes to the official repository. You may not redistribute it or publish forks without the author's prior written permission. See [LICENSE](LICENSE).
