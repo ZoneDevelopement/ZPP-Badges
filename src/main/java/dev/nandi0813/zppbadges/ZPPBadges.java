@@ -43,7 +43,7 @@ public final class ZPPBadges extends JavaPlugin {
         instance = this;
 
         if (!ZonePracticeApi.isAvailable() || runtimeApiVersion() < 4) {
-            getLogger().severe("ZonePractice Pro 2.5.0+ is required.");
+            getLogger().severe("ZonePractice Pro 7.10.0-dev-248-03ac46f or newer (API level 4) is required.");
             getServer().getPluginManager().disablePlugin(this);
             return;
         }

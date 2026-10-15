@@ -67,7 +67,7 @@ jobs:
             echo
             echo "## Installation"
             echo
-            echo "1. Requires ZonePractice Pro 2.5.0 or newer (and optionally PlaceholderAPI)."
+            echo "1. Requires ZonePractice Pro 7.10.0-dev-248-03ac46f or newer (API level 4), and optionally PlaceholderAPI."
             echo "2. Put \`ZPP-Badges-$VERSION.jar\` in your \`plugins\` folder and restart the server."
             echo "3. Configure \`plugins/ZPPBadges/config.yml\`, \`badges.yml\` and \`messages.yml\`, then run \`/badges reload\`."
           } > RELEASE_NOTES.md

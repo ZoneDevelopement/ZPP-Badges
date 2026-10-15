@@ -7,7 +7,7 @@ show them next to their name in the nametag, tab list and chat. Badges are picke
 
 ## Requirements
 
-- ZonePractice Pro 2.5.0 or newer
+- ZonePractice Pro 7.10.0-dev-248-03ac46f or newer (API level 4)
 - PlaceholderAPI (optional, for placeholders)
 
 ## Installation
