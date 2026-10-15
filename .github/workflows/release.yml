@@ -1,0 +1,104 @@
+name: Release
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - build.gradle.kts
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Read version
+        id: version
+        run: |
+          VERSION=$(sed -n 's/^version = "\(.*\)"$/\1/p' build.gradle.kts)
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          if git ls-remote --exit-code --tags origin "refs/tags/$VERSION" > /dev/null; then
+            echo "Tag $VERSION already exists, skipping release."
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-java@v4
+        if: steps.version.outputs.exists == 'false'
+        with:
+          distribution: temurin
+          java-version: 25
+
+      - uses: gradle/actions/setup-gradle@v4
+        if: steps.version.outputs.exists == 'false'
+
+      - name: Build
+        if: steps.version.outputs.exists == 'false'
+        run: ./gradlew build -PlocalApi=false
+
+      - name: Generate release notes
+        if: steps.version.outputs.exists == 'false'
+        id: cliff
+        uses: orhun/git-cliff-action@v4
+        with:
+          config: cliff.toml
+          args: --unreleased --tag ${{ steps.version.outputs.version }} --strip header
+        env:
+          OUTPUT: CHANGES.md
+
+      - name: Compose release body
+        if: steps.version.outputs.exists == 'false'
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          {
+            cat CHANGES.md
+            echo
+            echo "## Installation"
+            echo
+            echo "1. Requires ZonePractice Pro 2.5.0 or newer (and optionally PlaceholderAPI)."
+            echo "2. Put \`ZPP-Badges-$VERSION.jar\` in your \`plugins\` folder and restart the server."
+            echo "3. Configure \`plugins/ZPPBadges/config.yml\`, \`badges.yml\` and \`messages.yml\`, then run \`/badges reload\`."
+          } > RELEASE_NOTES.md
+
+      - name: Create release
+        if: steps.version.outputs.exists == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          gh release create "$VERSION" build/libs/ZPP-Badges-$VERSION.jar \
+            --target "$GITHUB_SHA" \
+            --title "ZPP-Badges $VERSION" \
+            --notes-file RELEASE_NOTES.md
+
+      - name: Update CHANGELOG.md
+        if: steps.version.outputs.exists == 'false'
+        uses: orhun/git-cliff-action@v4
+        with:
+          config: cliff.toml
+          args: --tag ${{ steps.version.outputs.version }}
+        env:
+          OUTPUT: CHANGELOG.md
+
+      - name: Commit CHANGELOG.md
+        if: steps.version.outputs.exists == 'false'
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add CHANGELOG.md
+          git commit -m "docs(changelog): ZPP-Badges $VERSION [skip ci]" || exit 0
+          git push origin HEAD:master
