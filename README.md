@@ -142,7 +142,7 @@ the matching requirements.
 ```
 
 The build uses the ZonePractice Pro API from a local `api/` checkout when one exists next to the repository
-(`../../api`). Use `-PlocalApi=false` to build against the published `ZonePracticePro-Api` artifact from JitPack instead.
+(`../ZPP-Api`). Use `-PlocalApi=false` to build against the published `ZonePracticePro-Api` artifact from JitPack instead.
 
 ## License
 

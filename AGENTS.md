@@ -4,30 +4,31 @@ Badges addon for ZonePractice Pro (ZPP). Players unlock badges from ZPP stats, e
 
 ## Where this repo sits
 
-This repo is checked out inside the ZPP plugin repo at `addons/ZPP-Badges/`. `addons/` is gitignored there; every addon is its own private repo in the `ZoneDevelopement` org (this one: `ZoneDevelopement/ZPP-Badges`, branch `master`).
+This repo lives in the workspace folder `ZonePractice-Workspace/ZPP-Badges/`. Every addon is its own private repo in the `ZoneDevelopement` org (this one: `ZoneDevelopement/ZPP-Badges`, branch `master`). The core's gitignored `addons/ZPP-Badges` is a symlink here, so `deployToTestServers` still builds it.
 
 ```
-ZonePractice Pro/               ZPP plugin repo (branch dev, PRs to master)
-├── AGENTS.md                   plugin rules: architect/implementer workflow, conventions
-├── api/                        ZonePracticePro-Api, separate repo (ZoneDevelopement/ZonePracticePro-Api)
-├── core/                       plugin; implements the API (ZonePracticeApiImpl, manager/api/*RegistryImpl)
-├── test_servers/<version>/     local Paper servers
-└── addons/
-    └── ZPP-Badges/             this repo
+ZonePractice-Workspace/
+├── AGENTS.md                   workspace overview
+├── ZonePractice Pro/           ZPP plugin repo (branch dev, PRs to master); core/ implements the API
+├── ZPP-Api/                    ZonePracticePro-Api, separate repo (ZoneDevelopement/ZonePracticePro-Api)
+├── ZPP-Backend/                private licensing backend
+├── ZPP-Bots/                   bots addon
+├── ZPP-Badges/                 this repo
+└── test_servers/<version>/     local Paper servers
 ```
 
 - **Depends on the API only.** Never import `dev.nandi0813.practice.*` (core internals). Everything goes through `dev.nandi0813.api` (`ZonePracticeApi.getInstance()`, events in `dev.nandi0813.api.Event`).
-- **API source:** `../../api/src/main/java/dev/nandi0813/api/`. Read it instead of guessing signatures. User-facing API docs: `../../gitbook/extra/for-developers.md`.
+- **API source:** `../ZPP-Api/src/main/java/dev/nandi0813/api/`. Read it instead of guessing signatures. User-facing API docs: `../ZonePractice Pro/gitbook/extra/for-developers.md`.
 - **Core side of the hooks this addon uses** (for debugging): `core/.../manager/api/NameDecorationRegistryImpl.java` (where decorations are applied: `NametagManager`, `InventoryUtil`, `ChatFormatUtil`, `AdapterUtil`/`PracticeAdapter` sidebar), `CosmeticsRegistryImpl.java` + `manager/gui/guis/cosmetics/CosmeticsHubGui.java` (hub button; owners pin it with `GUIS.COSMETICS.HUB.ADDON-SLOTS.zppbadges` in ZPP `guis.yml`).
 
 ## Build & dependency on the API
 
 ```bash
 ./gradlew build                     # jar: build/libs/ZPP-Badges-<version>.jar
-./gradlew build -PlocalApi=false    # build against JitPack instead of ../../api (what CI does)
+./gradlew build -PlocalApi=false    # build against JitPack instead of ../ZPP-Api (what CI does)
 ```
 
-- `settings.gradle.kts` substitutes `com.github.ZoneDevelopement:ZonePracticePro-Api` with the local `../../api` checkout when it exists, so API changes can be developed together with the addon.
+- `settings.gradle.kts` substitutes `com.github.ZoneDevelopement:ZonePracticePro-Api` with the local `../ZPP-Api` checkout when it exists, so API changes can be developed together with the addon.
 - The version in `build.gradle.kts` must be a released API version on JitPack, or CI fails. Needing a new API method means: change `api/` → implement in ZPP core → release the API (bump `version` in `api/build.gradle.kts`, push) → bump the API version here and in ZPP `gradle/libs.versions.toml`.
 - Runtime API check: read `API_VERSION` reflectively (`ZPPBadges.runtimeApiVersion()`). `ZonePracticeApi.API_VERSION` is a compile-time constant and gets inlined, so a direct comparison always passes.
 
